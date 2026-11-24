@@ -1,0 +1,14 @@
+[Unit]
+Description=Backend PetCard (Node.js + Express)
+After=network.target postgresql.service
+
+[Service]
+WorkingDirectory=/opt/app/backend
+EnvironmentFile=/opt/app/backend/.env
+Environment=NODE_ENV=production
+ExecStart=/usr/bin/node server.js
+Restart=always
+User=ubuntu
+
+[Install]
+WantedBy=multi-user.target
